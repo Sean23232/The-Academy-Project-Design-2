@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --color-ivory: #f6f1e8;
+  --color-paper: #fbf8f3;
+  --color-sand: #efe6da;
+  --color-ink: #1c2430;
+  --color-ink-soft: #3d4a5c;
+  --color-muted: #5c6775;
+  --color-line: #e3d6c6;
+  --color-tap: #9e2a36;
+  --color-tap-dark: #7c202a;
+  --color-clay: #8d6b4a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #9e2a36;
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid #9e2a36;
+  outline-offset: 3px;
+}
+
+[id] {
+  scroll-margin-top: 5.75rem;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.034em;
+  line-height: 1.04;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--color-tap);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.kicker::before {
+  content: "";
+  width: 1.6rem;
+  height: 2px;
+  background: currentColor;
+  flex: none;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  background: #1c2430;
+  color: #fbf8f3;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+}
+
+.skip:focus {
+  top: 1rem;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.card-lift {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-3px);
+  border-color: #cbb59a;
+  box-shadow: 0 16px 40px rgba(28, 36, 48, 0.06);
+}
+
+.photo-zoom {
+  overflow: hidden;
+}
+
+.photo-zoom img {
+  transition: transform 0.6s ease;
+}
+
+.photo-zoom:hover img {
+  transform: scale(1.035);
+}
+
+.hero-wash {
+  background:
+    radial-gradient(820px 380px at 8% -10%, rgba(158, 42, 54, 0.09), transparent 62%),
+    radial-gradient(640px 360px at 100% 80%, rgba(141, 107, 74, 0.16), transparent 58%),
+    #f6f1e8;
+}
+
+.prose-measure {
+  max-width: 42rem;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8a8176;
+}
